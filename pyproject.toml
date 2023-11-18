@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "black-crow-ai-challenge"
+name = "etl_builder"
 version = "0.1.0"
 description = ""
 authors = ["Victor Poglioni <victorrenop16@gmail.com>"]
@@ -16,6 +16,9 @@ great-expectations = "^0.18.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"
+pytest-spark = "^0.6.0"
+flake8 = "^6.1.0"
+black = "^23.11.0"
 
 [build-system]
 requires = ["poetry-core"]

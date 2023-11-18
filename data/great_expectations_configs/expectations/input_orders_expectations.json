@@ -1,0 +1,44 @@
+{
+    "data_asset_type": null,
+    "expectation_suite_name": "input_orders_expectations",
+    "expectations": [
+        {
+            "expectation_type": "expect_table_row_count_to_be_between",
+            "kwargs": {
+                "min_value": 0
+            },
+            "meta": {
+                "notes": {
+                    "format": "markdown",
+                    "content": "There has to be some data so we can work with."
+                }
+            }
+        },
+        {
+            "expectation_type": "expect_column_values_to_not_be_null",
+            "kwargs": {
+                "column": "USER_AGENT"
+            },
+            "meta": {
+                "notes": {
+                    "format": "markdown",
+                    "content": "There can't be any null values here, a null UA string can cause parsing problems."
+                }
+            }
+        },
+        {
+            "expectation_type": "expect_column_values_to_not_match_regex",
+            "kwargs": {
+                "column": "USER_AGENT",
+                "regex": "^(\"\")"
+            },
+            "meta": {
+                "notes": {
+                    "format": "markdown",
+                    "content": "Empty UA strings can cause problems when parsing, we need to be careful with them."
+                }
+            }
+        }
+    ],
+    "ge_cloud_id": null
+}

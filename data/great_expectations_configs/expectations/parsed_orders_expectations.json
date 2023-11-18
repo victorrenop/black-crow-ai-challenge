@@ -1,0 +1,94 @@
+{
+    "data_asset_type": null,
+    "expectation_suite_name": "parsed_orders_expectations",
+    "expectations": [
+        {
+            "expectation_type": "expect_table_row_count_to_be_between",
+            "kwargs": {
+                "min_value": 1835
+            },
+            "meta": {
+                "notes": {
+                    "format": "markdown",
+                    "content": "The original dataset has 1835 rows and the new dataset has to have at least this row count"
+                }
+            }
+        },
+        {
+            "expectation_type": "expect_column_values_to_not_be_null",
+            "kwargs": {
+                "column": "device_type"
+            },
+            "meta": {
+                "notes": {
+                    "format": "markdown",
+                    "content": "Device type can't have any null values, instead any nulls should come as 'Other' string"
+                }
+            }
+        },
+        {
+            "expectation_type": "expect_column_values_to_not_be_null",
+            "kwargs": {
+                "column": "browser_type"
+            },
+            "meta": {
+                "notes": {
+                    "format": "markdown",
+                    "content": "Browser type can't have any null values, instead any nulls should come as 'Other' string"
+                }
+            }
+        },
+        {
+            "expectation_type": "expect_column_values_to_not_be_null",
+            "kwargs": {
+                "column": "browser_version"
+            },
+            "meta": {
+                "notes": {
+                    "format": "markdown",
+                    "content": "Browser version can't have any null values, instead any nulls should come as 'Other' string"
+                }
+            }
+        },
+        {
+            "expectation_type": "expect_column_distinct_values_to_equal_set",
+            "kwargs": {
+                "column": "device_type",
+                "value_set": ["Desktop", "Tablet", "Mobile", "Other"]
+            },
+            "meta": {
+                "notes": {
+                    "format": "markdown",
+                    "content": "Verify if the device types are in the expected set"
+                }
+            }
+        },
+        {
+            "expectation_type": "expect_column_distinct_values_to_be_in_set",
+            "kwargs": {
+                "column": "browser_type",
+                "value_set": ["Chrome", "Firefox", "Edge", "Safari", "Other"]
+            },
+            "meta": {
+                "notes": {
+                    "format": "markdown",
+                    "content": "Verify if the browser type has the most common ones"
+                }
+            }
+        },
+        {
+            "expectation_type": "expect_table_columns_to_match_set",
+            "kwargs": {
+                "column_set": ["ID", "CUSTOMER_ID", "TOTAL_PRICE", "TOTAL_SHIPPING", "CURRENCY", "USER_AGENT", "TIMEZONE", "CREATED_AT", "UPDATED_AT", "ITEMS", "ITEMS_SUM", "device_type", "browser_type", "browser_version"],
+                "exact_match": true
+            },
+            "meta": {
+                "notes": {
+                    "format": "markdown",
+                    "content": "Verify if the 3 new columns were created successfuly and if the original columns were preserved"
+                }
+            }
+        }
+    ],
+    "ge_cloud_id": null
+}

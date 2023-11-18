@@ -3,7 +3,11 @@
 from etl_builder.steps.step import Step, WriteModes
 from etl_builder.steps.sources import JsonFileSource
 from etl_builder.steps.sinks import JsonFileSink, StdoutSink
-from etl_builder.steps.transforms import FillNullTransform, FlattenNestedTransform, UserAgentParserTransform
+from etl_builder.steps.transforms import (
+    FillNullTransform,
+    FlattenNestedTransform,
+    UserAgentParserTransform,
+)
 
 __all__ = [
     "Step",

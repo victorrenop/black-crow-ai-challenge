@@ -1,0 +1,179 @@
+{
+  "evaluation_parameters": {},
+  "meta": {
+    "active_batch_definition": {
+      "batch_identifiers": {
+        "batch_id": "parsed_ua_output"
+      },
+      "data_asset_name": "parsed_ua_output",
+      "data_connector_name": "default_runtime_data_connector_name",
+      "datasource_name": "pyspark_df_source"
+    },
+    "batch_markers": {
+      "ge_load_time": "20231118T211106.154652Z"
+    },
+    "batch_spec": {
+      "batch_data": "SparkDataFrame",
+      "data_asset_name": "parsed_ua_output"
+    },
+    "checkpoint_id": null,
+    "checkpoint_name": "dq_general_checkpoint",
+    "expectation_suite_name": "input_orders_expectations",
+    "great_expectations_version": "0.18.3",
+    "run_id": {
+      "run_name": "20231118-211106",
+      "run_time": "2023-11-18T21:11:06.148093+00:00"
+    },
+    "validation_id": null,
+    "validation_time": "20231118T211106.197428Z"
+  },
+  "results": [
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_table_row_count_to_be_between",
+        "kwargs": {
+          "batch_id": "af35d146696767d8c2301c13e006922c",
+          "min_value": 0
+        },
+        "meta": {
+          "notes": {
+            "content": "There has to be some data so we can work with.",
+            "format": "markdown"
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "observed_value": 1835
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "af35d146696767d8c2301c13e006922c",
+          "column": "USER_AGENT"
+        },
+        "meta": {
+          "notes": {
+            "content": "There can't be any null values here, a null UA string can cause parsing problems.",
+            "format": "markdown"
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 1835,
+        "partial_unexpected_counts": [
+          {
+            "count": 20,
+            "value": null
+          }
+        ],
+        "partial_unexpected_list": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "unexpected_count": 25,
+        "unexpected_percent": 1.3623978201634876
+      },
+      "success": false
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_match_regex",
+        "kwargs": {
+          "batch_id": "af35d146696767d8c2301c13e006922c",
+          "column": "USER_AGENT",
+          "regex": "^(\"\")"
+        },
+        "meta": {
+          "notes": {
+            "content": "Empty UA strings can cause problems when parsing, we need to be careful with them.",
+            "format": "markdown"
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 1835,
+        "missing_count": 25,
+        "missing_percent": 1.3623978201634876,
+        "partial_unexpected_counts": [
+          {
+            "count": 20,
+            "value": "\"\""
+          }
+        ],
+        "partial_unexpected_list": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ],
+        "unexpected_count": 68,
+        "unexpected_percent": 3.7569060773480665,
+        "unexpected_percent_nonmissing": 3.7569060773480665,
+        "unexpected_percent_total": 3.7057220708446867
+      },
+      "success": false
+    }
+  ],
+  "statistics": {
+    "evaluated_expectations": 3,
+    "success_percent": 33.33333333333333,
+    "successful_expectations": 1,
+    "unsuccessful_expectations": 2
+  },
+  "success": false
+}

@@ -1,0 +1,395 @@
+{
+  "evaluation_parameters": {},
+  "meta": {
+    "active_batch_definition": {
+      "batch_identifiers": {
+        "batch_id": "parsed_ua_output"
+      },
+      "data_asset_name": "parsed_ua_output",
+      "data_connector_name": "default_runtime_data_connector_name",
+      "datasource_name": "pyspark_df_source"
+    },
+    "batch_markers": {
+      "ge_load_time": "20231118T210951.848978Z"
+    },
+    "batch_spec": {
+      "batch_data": "SparkDataFrame",
+      "data_asset_name": "parsed_ua_output"
+    },
+    "checkpoint_id": null,
+    "checkpoint_name": "dq_general_checkpoint",
+    "expectation_suite_name": "parsed_orders_expectations",
+    "great_expectations_version": "0.18.3",
+    "run_id": {
+      "run_name": "20231118-210951",
+      "run_time": "2023-11-18T21:09:51.840849+00:00"
+    },
+    "validation_id": null,
+    "validation_time": "20231118T210951.898811Z"
+  },
+  "results": [
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_table_row_count_to_be_between",
+        "kwargs": {
+          "batch_id": "af35d146696767d8c2301c13e006922c",
+          "min_value": 1835
+        },
+        "meta": {
+          "notes": {
+            "content": "The original dataset has 1835 rows and the new dataset has to have at least this row count",
+            "format": "markdown"
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "observed_value": 1835
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_table_columns_to_match_set",
+        "kwargs": {
+          "batch_id": "af35d146696767d8c2301c13e006922c",
+          "column_set": [
+            "ID",
+            "CUSTOMER_ID",
+            "TOTAL_PRICE",
+            "TOTAL_SHIPPING",
+            "CURRENCY",
+            "USER_AGENT",
+            "TIMEZONE",
+            "CREATED_AT",
+            "UPDATED_AT",
+            "ITEMS",
+            "ITEMS_SUM",
+            "device_type",
+            "browser_type",
+            "browser_version"
+          ],
+          "exact_match": true
+        },
+        "meta": {
+          "notes": {
+            "content": "Verify if the 3 new columns were created successfuly and if the original columns were preserved",
+            "format": "markdown"
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "observed_value": [
+          "CREATED_AT",
+          "CURRENCY",
+          "CUSTOMER_ID",
+          "ID",
+          "ITEMS",
+          "ITEMS_SUM",
+          "TIMEZONE",
+          "TOTAL_PRICE",
+          "TOTAL_SHIPPING",
+          "UPDATED_AT",
+          "USER_AGENT",
+          "browser_type",
+          "browser_version",
+          "device_type"
+        ]
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "af35d146696767d8c2301c13e006922c",
+          "column": "device_type"
+        },
+        "meta": {
+          "notes": {
+            "content": "Device type can't have any null values, instead any nulls should come as 'Other' string",
+            "format": "markdown"
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 1835,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_distinct_values_to_equal_set",
+        "kwargs": {
+          "batch_id": "af35d146696767d8c2301c13e006922c",
+          "column": "device_type",
+          "value_set": [
+            "Desktop",
+            "Tablet",
+            "Mobile",
+            "Other"
+          ]
+        },
+        "meta": {
+          "notes": {
+            "content": "Verify if the device types are in the expected set",
+            "format": "markdown"
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "details": {
+          "value_counts": [
+            {
+              "count": 313,
+              "value": "Desktop"
+            },
+            {
+              "count": 1410,
+              "value": "Mobile"
+            },
+            {
+              "count": 93,
+              "value": "Other"
+            },
+            {
+              "count": 19,
+              "value": "Tablet"
+            }
+          ]
+        },
+        "observed_value": [
+          "Desktop",
+          "Mobile",
+          "Other",
+          "Tablet"
+        ]
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "af35d146696767d8c2301c13e006922c",
+          "column": "browser_type"
+        },
+        "meta": {
+          "notes": {
+            "content": "Browser type can't have any null values, instead any nulls should come as 'Other' string",
+            "format": "markdown"
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 1835,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_distinct_values_to_be_in_set",
+        "kwargs": {
+          "batch_id": "af35d146696767d8c2301c13e006922c",
+          "column": "browser_type",
+          "value_set": [
+            "Chrome",
+            "Firefox",
+            "Edge",
+            "Safari",
+            "Other"
+          ]
+        },
+        "meta": {
+          "notes": {
+            "content": "Verify if the browser type has the most common ones",
+            "format": "markdown"
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "details": {
+          "value_counts": [
+            {
+              "count": 214,
+              "value": "Chrome"
+            },
+            {
+              "count": 99,
+              "value": "Chrome Mobile"
+            },
+            {
+              "count": 5,
+              "value": "Chrome Mobile WebView"
+            },
+            {
+              "count": 86,
+              "value": "Chrome Mobile iOS"
+            },
+            {
+              "count": 9,
+              "value": "DuckDuckGo Mobile"
+            },
+            {
+              "count": 22,
+              "value": "Edge"
+            },
+            {
+              "count": 64,
+              "value": "Facebook"
+            },
+            {
+              "count": 11,
+              "value": "Firefox"
+            },
+            {
+              "count": 1,
+              "value": "Firefox Mobile"
+            },
+            {
+              "count": 1,
+              "value": "Firefox iOS"
+            },
+            {
+              "count": 15,
+              "value": "Google"
+            },
+            {
+              "count": 374,
+              "value": "Instagram"
+            },
+            {
+              "count": 741,
+              "value": "Mobile Safari"
+            },
+            {
+              "count": 23,
+              "value": "Mobile Safari UI/WKWebView"
+            },
+            {
+              "count": 93,
+              "value": "Other"
+            },
+            {
+              "count": 1,
+              "value": "Phantom"
+            },
+            {
+              "count": 1,
+              "value": "Pinterest"
+            },
+            {
+              "count": 66,
+              "value": "Safari"
+            },
+            {
+              "count": 9,
+              "value": "Samsung Internet"
+            }
+          ]
+        },
+        "observed_value": [
+          "Chrome",
+          "Chrome Mobile",
+          "Chrome Mobile WebView",
+          "Chrome Mobile iOS",
+          "DuckDuckGo Mobile",
+          "Edge",
+          "Facebook",
+          "Firefox",
+          "Firefox Mobile",
+          "Firefox iOS",
+          "Google",
+          "Instagram",
+          "Mobile Safari",
+          "Mobile Safari UI/WKWebView",
+          "Other",
+          "Phantom",
+          "Pinterest",
+          "Safari",
+          "Samsung Internet"
+        ]
+      },
+      "success": false
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "af35d146696767d8c2301c13e006922c",
+          "column": "browser_version"
+        },
+        "meta": {
+          "notes": {
+            "content": "Browser version can't have any null values, instead any nulls should come as 'Other' string",
+            "format": "markdown"
+          }
+        }
+      },
+      "meta": {},
+      "result": {
+        "element_count": 1835,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    }
+  ],
+  "statistics": {
+    "evaluated_expectations": 7,
+    "success_percent": 85.71428571428571,
+    "successful_expectations": 6,
+    "unsuccessful_expectations": 1
+  },
+  "success": false
+}
