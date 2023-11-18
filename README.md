@@ -190,7 +190,7 @@ $ make requirements
 ```
 2. Run the quality checks on the input data:
 ```
-$ python -m etl_builder.cli data-quality data/sample_orders.json.gz input_orders_expectations
+$ python -m etl_builder.cli data-quality execute data/sample_orders.json.gz input_orders_expectations
 ```
 3. Run the pipeline:
 ```
@@ -202,7 +202,7 @@ $ mv data/processed_orders/long_file_name.json.gz data/processed_orders/processe
 ```
 5. Run the quality checks on the output data:
 ```
-$ python -m etl_builder.cli data-quality data/processed_orders/processed_orders.json.gz parsed_orders_expectations
+$ python -m etl_builder.cli data-quality execute data/processed_orders/processed_orders.json.gz parsed_orders_expectations
 ```
 6. Open the quality reports in your default browser:
 ```
@@ -221,11 +221,11 @@ $ make build
 ```
 2. Run the quality checks on the input data:
 ```
-$ docker run --rm -v $HOME/black-crow-ai-challenge/data/:/black_crow_ai_challenge/data/ data-quality data/sample_orders.json.gz input_orders_expectations
+$ docker run --rm -v $HOME/black-crow-ai-challenge/data/:/black_crow_ai_challenge/data/ black_crow_ai_challenge data-quality execute data/sample_orders.json.gz input_orders_expectations
 ```
 3. Run the pipeline:
 ```
-$ docker run --rm -v $HOME/black-crow-ai-challenge/data/:/black_crow_ai_challenge/data/ pipelines execute black_crow_ai_pipeline
+$ docker run --rm -v $HOME/black-crow-ai-challenge/data/:/black_crow_ai_challenge/data/ black_crow_ai_challenge pipelines execute black_crow_ai_pipeline
 ```
 4. Rename the resulting file that ends with `json.gz`:
 ```
@@ -233,7 +233,7 @@ $ mv data/processed_orders/long_file_name.json.gz data/processed_orders/processe
 ```
 5. Run the quality checks on the output data:
 ```
-$ docker run --rm -v $HOME/black-crow-ai-challenge/data/:/black_crow_ai_challenge/data/ data-quality data/processed_orders/processed_orders.json.gz parsed_orders_expectations
+$ docker run --rm -v $HOME/black-crow-ai-challenge/data/:/black_crow_ai_challenge/data/ black_crow_ai_challenge data-quality execute data/processed_orders/processed_orders.json.gz parsed_orders_expectations
 ```
 6. Open the quality reports on your default browser:
 ```
